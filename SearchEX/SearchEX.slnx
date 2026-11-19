@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <BuildType Name="RW16" />
+    <BuildType Name="RW17" />
+  </Configurations>
+  <Project Path="SearchEX.csproj" />
+</Solution>

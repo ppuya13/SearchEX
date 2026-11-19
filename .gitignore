@@ -444,3 +444,6 @@ obj/
 # Rider / ReSharper
 _ReSharper*/
 *.DotSettings.user
+
+# Rimworld
+References/

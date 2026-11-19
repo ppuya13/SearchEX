@@ -1,0 +1,84 @@
+﻿
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework Condition="'$(Configuration)' == 'RW16'">net481</TargetFramework>
+        <TargetFramework Condition="'$(Configuration)' != 'RW16'">net10.0</TargetFramework>
+
+        <LangVersion>12.0</LangVersion>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+
+        <AssemblyName>SearchEX</AssemblyName>
+        <RootNamespace>SearchEX</RootNamespace>
+        <OutputType>Library</OutputType>
+
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+        <Configurations>Debug;Release;RW16;RW17</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <!-- RimWorld 1.6 -->
+    <PropertyGroup Condition="'$(Configuration)' == 'RW16'">
+        <DefineConstants>$(DefineConstants);RW16</DefineConstants>
+        <OutputPath>$(MSBuildProjectDirectory)/bin/RW16/</OutputPath>
+    </PropertyGroup>
+
+    <!-- RimWorld 1.7 -->
+    <PropertyGroup Condition="'$(Configuration)' == 'RW17'">
+        <DefineConstants>$(DefineConstants);RW17</DefineConstants>
+        <OutputPath>$(MSBuildProjectDirectory)/bin/RW17/</OutputPath>
+    </PropertyGroup>
+
+    <!-- RimWorld 1.6 References -->
+    <ItemGroup Condition="'$(Configuration)' == 'RW16'">
+        <Reference Include="0Harmony">
+            <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\2009463077\1.6\Assemblies\0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="Assembly-CSharp">
+            <HintPath>References/RW16/Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>References/RW16/UnityEngine.CoreModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath>References/RW16/UnityEngine.IMGUIModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath>References/RW16/UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <!-- RimWorld 1.7 References -->
+    <ItemGroup Condition="'$(Configuration)' != 'RW16'">
+        <Reference Include="0Harmony">
+            <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\2009463077\1.7\Assemblies\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>References/RW17/Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="UnityStubs">
+            <HintPath>References/RW17/UnityStubs.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+
+        <Reference Include="Waylith.UnityCompat">
+            <HintPath>References/RW17/Waylith.UnityCompat.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+</Project>
